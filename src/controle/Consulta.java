@@ -5,7 +5,6 @@ import banco.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Consulta {
@@ -34,7 +33,6 @@ public class Consulta {
                 break;
             default:
                 System.out.println("Voltando ao menu. ");
-                return;
         }
     }
 

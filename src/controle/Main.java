@@ -10,7 +10,7 @@ public class Main {
         Banco b = new Banco("Banco Exemplo");
         menuInicial(b);
 
-        int escolha = -1;
+        int escolha;
         try (Scanner scanner = new Scanner(System.in)){
             do {
                 menu();

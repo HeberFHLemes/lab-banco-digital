@@ -1,9 +1,7 @@
 package banco;
 
-import controle.Main;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public abstract class Conta implements ContaBancaria {
 
@@ -74,7 +72,7 @@ public abstract class Conta implements ContaBancaria {
         conta.depositar(valor);
 
         // Registrar transação entre contas
-        this.operacoes.add(new Operacao(TipoOperacao.TRANSFERENCIA, valor, this));
+        this.operacoes.add(new Operacao(TipoOperacao.TRANSFERENCIA, valor, this, (Conta) conta));
 
         // Mensagem final
         System.out.println("Transação realizada com sucesso (" + valor + "), saldo atual: " + this.saldo);

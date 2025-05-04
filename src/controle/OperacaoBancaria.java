@@ -36,7 +36,6 @@ public class OperacaoBancaria {
                 break;
             case 0:
                 System.out.println("Voltando ao menu. ");
-                return;
         }
     }
 

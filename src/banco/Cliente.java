@@ -1,6 +1,5 @@
 package banco;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Cliente {
