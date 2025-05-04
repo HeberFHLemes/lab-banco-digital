@@ -1,8 +1,9 @@
 package banco;
 
-import java.sql.SQLOutput;
+import controle.Main;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public abstract class Conta implements ContaBancaria {
 
@@ -102,5 +103,19 @@ public abstract class Conta implements ContaBancaria {
 
     public int getNumero() {
         return numero;
+    }
+
+    public List<Operacao> getOperacoes() {
+        return operacoes;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "cliente=" + cliente +
+                ", numero=" + numero +
+                ", agencia=" + agencia +
+                ", saldo=" + saldo +
+                '}';
     }
 }

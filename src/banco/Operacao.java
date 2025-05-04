@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class Operacao {
 
-    private TipoOperacao tipo;
-    private LocalDate data;
-    private double valor;
-    private Conta conta;
+    private final TipoOperacao tipo;
+    private final LocalDate data;
+    private final double valor;
+    private final Conta conta;
     private Conta contaDestino;
 
     public Operacao(TipoOperacao tipo, double valor, Conta conta){

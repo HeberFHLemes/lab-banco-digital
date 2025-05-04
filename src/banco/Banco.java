@@ -24,4 +24,30 @@ public class Banco {
     public void listarOperacoes(){
         contas.forEach(conta -> conta.operacoes.forEach(System.out::println));
     }
+
+    // Listar todas as contas cadastradas
+    public void listarContas(){
+        contas.forEach(System.out::println);
+    }
+
+    public void registrarNovaConta(Conta conta){
+        this.contas.add(conta);
+    }
+
+    public Conta procurarConta(int numero){
+        Conta conta = null;
+        for (Conta c : this.getContas()){
+            if (c.getNumero() == numero){
+                conta = c;
+            }
+        }
+        return conta;
+    }
+
+    @Override
+    public String toString() {
+        return "Banco{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 }
