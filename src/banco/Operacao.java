@@ -47,13 +47,11 @@ public class Operacao {
 
     @Override
     public String toString() {
-        return "Operacao{" +
-                "tipo='" + tipo + '\'' +
-                ", data=" + data +
-                ", valor=" + valor +
-                ", conta=" + conta +
-                ", contaDestino=" + (contaDestino != null ? contaDestino.toString() : "") +
-                '}';
+        return "Operacao de " + tipo +
+                ", data: " + data +
+                ", valor: " + valor +
+                ", conta: " + conta +
+                (contaDestino != null ? (", contaDestino: " + contaDestino.toString()) : "");
     }
 }
 

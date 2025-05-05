@@ -109,11 +109,10 @@ public abstract class Conta implements ContaBancaria {
 
     @Override
     public String toString() {
-        return "Conta{" +
-                "cliente=" + cliente +
-                ", numero=" + numero +
-                ", agencia=" + agencia +
-                ", saldo=" + saldo +
-                '}';
+        return "Conta -> " +
+                " Número da conta: " + numero +
+                ", Agência: " + agencia +
+                ", Saldo atual: " + saldo +
+                ", Cliente: " + cliente;
     }
 }
