@@ -1,13 +1,14 @@
 package banco;
 
 import java.util.Comparator;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Banco {
 
-    private String nome; // Nome do banco
+    private final String nome; // Nome do banco
 
     /**
         HashMap contendo as contas registradas.
@@ -72,7 +73,7 @@ public class Banco {
     }
 
     // Retorna a conta com maior saldo
-    public Conta getContaMaisRica(){
+    public Conta getContaComMaiorSaldo(){
 
         // Retorna a conta com maior saldo, com o uso de stream(), max(), orElse() e Comparator.
         // (Pode retornar null)
@@ -93,5 +94,50 @@ public class Banco {
     @Override
     public String toString() {
         return this.nome;
+    }
+
+    // Para uso em Consulta: lista diversas informações sobre o banco, de
+    public void listarInformacoesDoBanco(){
+
+        System.out.println("=== Informações gerais sobre o banco ===");
+
+        // Nome do banco
+        System.out.println("Nome do banco: " + nome);
+
+        // Data de fundação (escopo do projeto impõe 'fundacao' do banco como a data da execução do programa)
+        System.out.println("Data de fundação: " + LocalDate.now());
+
+        // Retorna antes de realizar as operações seguintes, caso não haja contas cadastradas ainda
+        if (contas.isEmpty()){
+            System.out.println("Ainda não há contas registradas. ");
+            return;
+        }
+
+        // Número de contas cadastradas
+        System.out.println("Número total de contas cadastradas: " + contas.size());
+
+        // Transação mais cara "da história" do banco
+        Operacao maisCara = getTransacaoMaisCara();
+        System.out.println("Operação mais cara: " + (maisCara != null ? maisCara : "Ainda sem operações mais caras. "));
+
+        // Número total de operações "ao longo da história do banco"
+        System.out.println("Número total de operações realizadas: " + getNumeroTotalDeOperacoes());
+
+        // Conta/Cliente mais rico (Cliente será impresso junto com a conta (toString())
+        Conta maisRica = getContaComMaiorSaldo();
+        if (maisRica != null){
+            System.out.println("Conta mais rica do banco é: " + maisRica);
+        }
+
+        // Contas/Clientes negativados (Cliente será impresso junto com a conta (toString())
+        List<Conta> contasNegativadas = getContasNegativadas();
+
+        System.out.print("Contas negativadas: ");
+
+        if (contasNegativadas.isEmpty()) System.out.println("Sem contas negativadas. ");
+        else {
+            System.out.println();
+            contasNegativadas.forEach(System.out::println);
+        }
     }
 }

@@ -7,7 +7,7 @@ public class OperacaoBancaria {
 
     public static void realizarOperacoes(Banco banco, Scanner scanner){
 
-        System.out.println("Digite o número da conta desejado: ");
+        System.out.println("Digite o número da conta desejada: ");
         int numero = Integer.parseInt(scanner.nextLine());
 
         Conta conta = banco.procurarConta(numero);

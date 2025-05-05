@@ -128,4 +128,12 @@ public abstract class Conta implements ContaBancaria {
     public int hashCode() {
         return Objects.hashCode(numero);
     }
+
+    public void listarOperacoes(){
+        if (operacoes.isEmpty()){
+            System.out.println("Ainda não foi realizada nenhuma operação. ");
+            return;
+        }
+        operacoes.forEach(System.out::println);
+    }
 }

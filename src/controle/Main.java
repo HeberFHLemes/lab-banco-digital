@@ -22,9 +22,9 @@ public class Main {
                     case 2:
                         OperacaoBancaria.realizarOperacoes(b, scanner);
                         break;
-                    // case 3:
-                        // Consulta.consultarConta(b, scanner);
-                        // break;
+                    case 3:
+                        Consulta.consultarConta(b, scanner);
+                        break;
                     case 4:
                         Consulta.consultarBanco(b, scanner);
                         break;
