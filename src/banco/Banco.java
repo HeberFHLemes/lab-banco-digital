@@ -1,53 +1,52 @@
 package banco;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Banco {
+
     private String nome; // Nome do banco
-    private List<Conta> contas; // Lista de contas registradas
+
+    /**
+        HashMap contendo as contas registradas.
+        Key é o número (que deve ser único) da conta
+        Value será o objeto conta
+     */
+    private Map<Integer, Conta> contas;
 
     public Banco(String nome){
         this.nome = nome;
-        this.contas = new ArrayList<>();
+        this.contas = new HashMap<>();
     }
 
     public String getNome() {
         return nome;
     }
 
-    public List<Conta> getContas() {
+    public Map<Integer, Conta> getContas() {
         return contas;
     }
 
     // Listar todas as operações realizadas pelo banco
     public void listarOperacoes(){
-        contas.forEach(conta -> conta.operacoes.forEach(System.out::println));
+        contas.values().forEach(conta -> conta.operacoes.forEach(System.out::println));
     }
 
     // Listar todas as contas cadastradas
     public void listarContas(){
-        contas.forEach(System.out::println);
+        contas.values().forEach(System.out::println);
     }
 
     public void registrarNovaConta(Conta conta){
-        this.contas.add(conta);
+        this.contas.put(conta.getNumero(), conta);
     }
 
     public Conta procurarConta(int numero){
-        Conta conta = null;
-        for (Conta c : this.getContas()){
-            if (c.getNumero() == numero){
-                conta = c;
-            }
-        }
-        return conta;
+        return contas.get(numero); // retorna a conta ou null!
     }
 
     @Override
     public String toString() {
-        return "Banco{" +
-                "nome='" + nome + '\'' +
-                '}';
+        return this.nome;
     }
 }

@@ -56,21 +56,19 @@ public class Consulta {
 
         // Número total de operações "ao longo da história do banco"
 
-        // Cliente mais rico e clientes negativados
-        Conta contaComMaiorSaldo = banco.getContas().get(0);
+        // Cliente mais rico
+        // Conta contaComMaiorSaldo = null;
+        // System.out.println("Conta mais rica do banco: '" + contaComMaiorSaldo.getNumero() + "', com saldo de: R$ " + contaComMaiorSaldo.getSaldo());
+
+        // Clientes negativados
         List<Conta> negativados = new ArrayList<>();
-
-        for (Conta c : banco.getContas()){
-            if (c.getSaldo() > contaComMaiorSaldo.getSaldo()){
-                contaComMaiorSaldo = c;
-            }
-
+        for (Conta c : banco.getContas().values()){
             if (c.getSaldo() < 0){
                 negativados.add(c);
             }
         }
 
-        System.out.println("Conta mais rica do banco: " + contaComMaiorSaldo.getNumero());
-        System.out.println("Contas negativadas: " + negativados);
+        System.out.println("Contas negativadas:");
+        negativados.forEach(negativado -> System.out.println("'" + negativado.getNumero() + "', com saldo de: R$ " + negativado.getSaldo()));
     }
 }
