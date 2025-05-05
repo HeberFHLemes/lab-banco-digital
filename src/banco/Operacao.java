@@ -51,7 +51,7 @@ public class Operacao {
                 ", data: " + data +
                 ", valor: " + valor +
                 ", conta: " + conta +
-                (contaDestino != null ? (", contaDestino: " + contaDestino.toString()) : "");
+                (contaDestino != null ? (", contaDestino: " + contaDestino) : "");
     }
 }
 
