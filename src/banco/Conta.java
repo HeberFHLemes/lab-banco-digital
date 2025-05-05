@@ -2,6 +2,7 @@ package banco;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Conta implements ContaBancaria {
 
@@ -109,10 +110,22 @@ public abstract class Conta implements ContaBancaria {
 
     @Override
     public String toString() {
-        return "Conta -> " +
-                " Número da conta: " + numero +
-                ", Agência: " + agencia +
-                ", Saldo atual: " + saldo +
-                ", Cliente: " + cliente;
+        return "Conta{ " +
+                "Número da conta: '" + numero + '\'' +
+                ", Agência: '" + agencia + '\'' +
+                ", Saldo atual: '" + saldo + '\'' +
+                ", Cliente: '" + cliente + "' }";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+        return numero == conta.numero;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(numero);
     }
 }
