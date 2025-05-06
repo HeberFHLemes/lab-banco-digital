@@ -16,4 +16,12 @@ public class ContaCorrente extends Conta {
         super.imprimirInfosComuns();
     }
 
+    @Override
+    public String toString() {
+        return  "Conta-Corrente {" +
+                "Número da conta: '" + numero + '\'' +
+                ", Agência: '" + agencia + '\'' +
+                ", Saldo atual: '" + saldo + '\'' +
+                ", Cliente/Titular: '" + cliente + "'}";
+    }
 }

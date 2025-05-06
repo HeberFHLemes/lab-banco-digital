@@ -34,6 +34,7 @@ public class Consulta {
     }
 
     public static void consultarConta(Banco banco, Scanner scanner) {
+
         System.out.println("=== Consultar Conta ===");
 
         System.out.println("Digite o número da conta desejada: ");

@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Banco b = new Banco("Banco Exemplo");
-        menuInicial(b);
+        Banco banco = new Banco("Banco Exemplo");
+        menuInicial(banco);
 
         int escolha;
         try (Scanner scanner = new Scanner(System.in)){
@@ -17,16 +17,18 @@ public class Main {
                 escolha = getEscolha(scanner);
                 switch (escolha){
                     case 1:
-                        CriacaoDeConta.criarConta(b, scanner);
+                        CriacaoDeConta.criarConta(banco, scanner);
                         break;
                     case 2:
-                        OperacaoBancaria.realizarOperacoes(b, scanner);
+                        OperacaoBancaria.realizarOperacoes(banco, scanner);
                         break;
                     case 3:
-                        Consulta.consultarConta(b, scanner);
+                        Consulta.consultarConta(banco, scanner);
                         break;
                     case 4:
-                        Consulta.consultarBanco(b, scanner);
+                        Consulta.consultarBanco(banco, scanner);
+                        break;
+                    case 0:
                         break;
                     default:
                         System.out.println("Opção inválida. ");

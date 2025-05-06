@@ -15,4 +15,13 @@ public class ContaPoupanca extends Conta{
         System.out.println("=== Extrato Conta Poupança ===");
         super.imprimirInfosComuns();
     }
+
+    @Override
+    public String toString() {
+        return  "Conta-Poupança {" +
+                "Número da conta: '" + numero + '\'' +
+                ", Agência: '" + agencia + '\'' +
+                ", Saldo atual: '" + saldo + '\'' +
+                ", Cliente/Titular: '" + cliente + "'}";
+    }
 }

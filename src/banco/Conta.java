@@ -69,14 +69,19 @@ public abstract class Conta implements ContaBancaria {
         }
 
         // Realizar operação
-        this.sacar(valor);
-        conta.depositar(valor);
+        this.saldo -= valor;
+        conta.receberTransferencia(valor);
 
         // Registrar transação entre contas
         this.operacoes.add(new Operacao(TipoOperacao.TRANSFERENCIA, valor, this, (Conta) conta));
 
         // Mensagem final
         System.out.println("Transação realizada com sucesso (" + valor + "), saldo atual: " + this.saldo);
+    }
+
+    // Receber o valor, sem acerretar nas operações de depositar(). A operação adicionada à 'operações' é apenas a de transferir()
+    public void receberTransferencia(double valor){
+        this.saldo += valor;
     }
 
     // Auxiliar utilizado na implementação de imprimirExtrato(), nas subclasses.
@@ -108,13 +113,22 @@ public abstract class Conta implements ContaBancaria {
         return operacoes;
     }
 
+    // Listar as operações da conta
+    public void listarOperacoes(){
+        if (operacoes.isEmpty()){
+            System.out.println("Ainda não foi realizada nenhuma operação. ");
+            return;
+        }
+        operacoes.forEach(System.out::println);
+    }
+
     @Override
     public String toString() {
-        return "Conta{ " +
+        return  "Conta {" +
                 "Número da conta: '" + numero + '\'' +
                 ", Agência: '" + agencia + '\'' +
                 ", Saldo atual: '" + saldo + '\'' +
-                ", Cliente: '" + cliente + "' }";
+                ", Cliente/Titular: '" + cliente + "'}";
     }
 
     @Override
@@ -127,13 +141,5 @@ public abstract class Conta implements ContaBancaria {
     @Override
     public int hashCode() {
         return Objects.hashCode(numero);
-    }
-
-    public void listarOperacoes(){
-        if (operacoes.isEmpty()){
-            System.out.println("Ainda não foi realizada nenhuma operação. ");
-            return;
-        }
-        operacoes.forEach(System.out::println);
     }
 }

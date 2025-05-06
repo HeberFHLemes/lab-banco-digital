@@ -11,5 +11,7 @@ public interface ContaBancaria {
 
     void transferir(double valor, ContaBancaria conta);
 
+    void receberTransferencia(double valor);
+
     void imprimirExtrato();
 }

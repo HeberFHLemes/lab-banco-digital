@@ -1,7 +1,6 @@
 package banco;
 
 import java.util.Comparator;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -104,12 +103,9 @@ public class Banco {
         // Nome do banco
         System.out.println("Nome do banco: " + nome);
 
-        // Data de fundação (escopo do projeto impõe 'fundacao' do banco como a data da execução do programa)
-        System.out.println("Data de fundação: " + LocalDate.now());
-
         // Retorna antes de realizar as operações seguintes, caso não haja contas cadastradas ainda
         if (contas.isEmpty()){
-            System.out.println("Ainda não há contas registradas. ");
+            System.out.println("Ainda não há contas registradas.\n");
             return;
         }
 
@@ -132,12 +128,13 @@ public class Banco {
         // Contas/Clientes negativados (Cliente será impresso junto com a conta (toString())
         List<Conta> contasNegativadas = getContasNegativadas();
 
-        System.out.print("Contas negativadas: ");
+        System.out.println("Contas negativadas: ");
 
         if (contasNegativadas.isEmpty()) System.out.println("Sem contas negativadas. ");
         else {
-            System.out.println();
             contasNegativadas.forEach(System.out::println);
         }
+
+        System.out.println();
     }
 }
