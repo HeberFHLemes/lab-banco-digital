@@ -11,10 +11,10 @@ public class Banco {
 
     /**
         HashMap contendo as contas registradas.
-        Key é o número (que deve ser único) da conta
+        Key é o número (que deve ser único) da conta,
         Value será o objeto conta
      */
-    private Map<Integer, Conta> contas;
+    private final Map<Integer, Conta> contas;
 
     public Banco(String nome){
         this.nome = nome;
