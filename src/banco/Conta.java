@@ -86,7 +86,7 @@ public abstract class Conta implements ContaBancaria {
 
     // Auxiliar utilizado na implementação de imprimirExtrato(), nas subclasses.
     protected void imprimirInfosComuns() {
-        System.out.printf("Titular: %s%n", this.cliente.getNome());
+        System.out.printf("Titular: %s%n", this.cliente);
         System.out.printf("Agencia: %d%n", this.agencia);
         System.out.printf("Numero: %d%n", this.numero);
         System.out.printf("Saldo: %.2f%n", this.saldo);

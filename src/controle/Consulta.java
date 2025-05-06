@@ -48,14 +48,14 @@ public class Consulta {
 
         System.out.println("O que deseja consultar sobre a conta '" + conta.getNumero() + "' ?");
         System.out.println("""
-                [1]. Informações gerais
+                [1]. Imprimir Extrato
                 [2]. Operações registradas
                 [0]. Cancelar
                 """);
         int escolha = Main.getEscolha(scanner);
         switch (escolha){
             case 1:
-                System.out.println("=== Operações realizadas pela conta ===\n" + conta);
+                conta.imprimirExtrato();
                 break;
             case 2:
                 System.out.println("=== Operações realizadas pela conta ===");
