@@ -6,10 +6,6 @@ public class ContaCorrente extends Conta {
         super(cliente);
     }
 
-    public ContaCorrente(String nome, String cpf) {
-        super(new Cliente(nome, cpf));
-    }
-
     @Override
     public void imprimirExtrato() {
         System.out.println("=== Extrato Conta Corrente ===");
