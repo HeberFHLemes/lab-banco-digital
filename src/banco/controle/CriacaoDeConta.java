@@ -1,6 +1,7 @@
-package controle;
+package banco.controle;
 
-import banco.*;
+import banco.modelo.*;
+
 import java.util.Scanner;
 
 public class CriacaoDeConta {

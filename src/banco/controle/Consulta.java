@@ -1,6 +1,7 @@
-package controle;
+package banco.controle;
 
-import banco.*;
+import banco.modelo.Banco;
+import banco.modelo.Conta;
 
 import java.util.Scanner;
 

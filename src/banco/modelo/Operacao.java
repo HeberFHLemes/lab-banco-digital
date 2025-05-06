@@ -1,4 +1,4 @@
-package banco;
+package banco.modelo;
 
 import java.time.LocalDate;
 

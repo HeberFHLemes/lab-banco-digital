@@ -1,4 +1,4 @@
-package banco;
+package banco.modelo;
 
 /**
  * Interface para tornar claro a definição dos métodos básicos que uma conta bancária deverá ter
